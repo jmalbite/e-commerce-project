@@ -1,21 +1,39 @@
 import React from "react";
-import { Button } from "@material-ui/core";
 import useStyle from "./menu-item-style";
 
-const MenuItem = ({ title, imageUrl }) => {
+import {
+	Card,
+	CardActionArea,
+	CardActions,
+	CardContent,
+	CardMedia,
+	Button,
+	Typography,
+	Grid,
+} from "@material-ui/core";
+
+const MenuItem = ({ title, imageUrl, size }) => {
 	const classes = useStyle();
 	return (
-		<div className={classes.menuItem}>
-			<div
-				className={classes.backgroundImg}
-				style={{ backgroundImage: `url(${imageUrl})` }}
-			/>
+		// <Box className={classes.menuContainer} padding={0.5}>
+		// 	<img className={classes.bkgrndImage} src={imageUrl} />
+		// 	<Box className={classes.content}>
+		// 		<h1 className={classes.title}>{title.toUpperCase()}</h1>
+		// 		<Button variant='outlined'>Shop Now</Button>
+		// 	</Box>
+		// </Box>
 
-			<div className={classes.content}>
-				<h1 className={classes.title}>{title.toUpperCase()}</h1>
-				<Button variant='outlined'>Shop Now</Button>
-			</div>
-		</div>
+		<Card className={classes.root}>
+			<CardActionArea>
+				<CardMedia className={classes.media} image={imageUrl} title={title} />
+				<CardContent>
+					<Typography variant='h5'>{title.toUpperCase()}</Typography>
+				</CardContent>
+			</CardActionArea>
+			<CardActions>
+				<Button variant='outlined'>SHOP NOW</Button>
+			</CardActions>
+		</Card>
 	);
 };
 
