@@ -1,6 +1,6 @@
 import React from "react";
 import useStyle from "./menu-item-style";
-
+import { withRouter } from "react-router-dom";
 import {
 	Card,
 	CardActionArea,
@@ -9,21 +9,16 @@ import {
 	CardMedia,
 	Button,
 	Typography,
-	Grid,
 } from "@material-ui/core";
 
-const MenuItem = ({ title, imageUrl, size }) => {
+const MenuItem = ({ title, imageUrl, linkUrl, history, match }) => {
 	const classes = useStyle();
 	return (
-		// <Box className={classes.menuContainer} padding={0.5}>
-		// 	<img className={classes.bkgrndImage} src={imageUrl} />
-		// 	<Box className={classes.content}>
-		// 		<h1 className={classes.title}>{title.toUpperCase()}</h1>
-		// 		<Button variant='outlined'>Shop Now</Button>
-		// 	</Box>
-		// </Box>
-
-		<Card className={classes.root}>
+		<Card
+			className={classes.root}
+			variant='outlined'
+			onClick={() => history.push(`${match.url}${linkUrl}`)}
+		>
 			<CardActionArea>
 				<CardMedia className={classes.media} image={imageUrl} title={title} />
 				<CardContent>
@@ -31,10 +26,16 @@ const MenuItem = ({ title, imageUrl, size }) => {
 				</CardContent>
 			</CardActionArea>
 			<CardActions>
-				<Button variant='outlined'>SHOP NOW</Button>
+				<Button
+					variant='outlined'
+					onClick={() => history.push(`${match.url}${linkUrl}`)}
+				>
+					SHOP NOW
+				</Button>
 			</CardActions>
 		</Card>
 	);
 };
 
-export default MenuItem;
+export default withRouter(MenuItem);
+//use withRouter() fucntion to avoid props tunneling
