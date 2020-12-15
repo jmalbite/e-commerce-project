@@ -7,7 +7,6 @@ import {
 	CardActions,
 	CardContent,
 	CardMedia,
-	Button,
 	Typography,
 } from "@material-ui/core";
 
@@ -26,12 +25,9 @@ const MenuItem = ({ title, imageUrl, linkUrl, history, match }) => {
 				</CardContent>
 			</CardActionArea>
 			<CardActions>
-				<Button
-					variant='outlined'
-					onClick={() => history.push(`${match.url}${linkUrl}`)}
-				>
-					SHOP NOW
-				</Button>
+				<Typography variant='h6' color='secondary'>
+					Shop Now
+				</Typography>
 			</CardActions>
 		</Card>
 	);
