@@ -12,12 +12,12 @@ import {
 const CollectionItem = ({ id, name, price, imageUrl }) => {
 	const classes = useStyles();
 	return (
-		<Card className={classes.root} key={id}>
+		<Card className={classes.root} key={id} variant='elevation' elevation='10'>
 			<CardHeader className={classes.title} title={name} />
 			<CardMedia className={classes.media} image={imageUrl} />
-			<CardActions>
+			<CardActions className={classes.actions}>
 				<Typography align='center' variant='h6'>
-					{price}
+					${price}
 				</Typography>
 				<Button variant='outlined' size='small'>
 					Add to cart

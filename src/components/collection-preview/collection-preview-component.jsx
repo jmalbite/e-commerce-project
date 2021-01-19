@@ -8,7 +8,7 @@ const CollectionPreview = ({ title, items, id }) => {
 
 	return (
 		<Box className={classes.collectionPreviewContainer} key={id}>
-			<Typography variant='h4'>{title}</Typography>
+			<Typography variant='h2'>{title}</Typography>
 			<Box className={classes.preview}>
 				{items
 					.filter((item, index) => index < 4)

@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
 
 	preview: {
 		display: "flex",
+		flexWrap: "wrap",
 		justifyContent: "space-between",
 	},
 }));
